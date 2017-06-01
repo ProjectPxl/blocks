@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20170531223804) do
 
   create_table "websites", force: :cascade do |t|
     t.text "name"
+    t.text "html_source"
+    t.text "css_source"
+    t.text "js_source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
