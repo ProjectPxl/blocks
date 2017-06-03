@@ -9,5 +9,6 @@ class WebsitesController < ApplicationController
 
 	def show
 		@name = Website.find(params[:id]).name
+		@all_components = Component.all
 	end
 end
