@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170531223804) do
   create_table "website_components", force: :cascade do |t|
     t.integer "website_id"
     t.integer "component_id"
+    t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
