@@ -1,14 +1,15 @@
 class WebsitesController < ApplicationController
-	layout 'website', only: [:index]
+	layout 'website', only: [:show]
 
-	def index
+	def show
 		@website = Website.first
 		@title 	 = @website.name
 		@source  = @website.components.first.html.html_safe
 	end
 
-	def show
-		@name = Website.find(params[:id]).name
-		@all_components = Component.all
+	def edit
+		@website = Website.find(params[:id])
+		@name 	 = @website.name
+		@website_components = @website.components
 	end
 end

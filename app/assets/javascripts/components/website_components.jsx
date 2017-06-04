@@ -1,4 +1,4 @@
-class AllComponents extends React.Component {
+class WebsiteComponents extends React.Component {
   render() {
   	var components = [];
   	this.props.components.forEach(function(component) {
