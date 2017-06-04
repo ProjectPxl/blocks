@@ -3,6 +3,7 @@ class CreateWebsiteComponents < ActiveRecord::Migration[5.1]
     create_table :website_components do |t|
       t.integer :website_id
       t.integer :component_id
+      t.integer :parent_id
       t.integer :order
 
       t.timestamps

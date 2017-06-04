@@ -10,6 +10,7 @@ class WebsitesController < ApplicationController
 	def edit
 		@website = Website.find(params[:id])
 		@name 	 = @website.name
-		@website_components = @website.components
+		@website_components = Component.joins(:website_components).where( "website_components.website_id = ?", params[:id] )
+			.merge( WebsiteComponent.order(order: :asc) )
 	end
 end
