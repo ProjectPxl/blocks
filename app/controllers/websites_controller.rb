@@ -10,7 +10,12 @@ class WebsitesController < ApplicationController
 	def edit
 		@website = Website.find(params[:id])
 		@name 	 = @website.name
-		@website_components = Component.joins(:website_components).where( "website_components.website_id = ?", params[:id] )
-			.merge( WebsiteComponent.order(order: :asc) )
+		# @website_components = Component.joins(:website_components).on_website( params[:id] ).get_parents._order
+		@website_components = WebsiteComponent.joins(:website).where("website_id = ?", 1).get_parents._order
+
+		@obj = {}
+		@website_components.each do |wc|
+			@obj[wc.component.name] = wc.get_children
+		end
 	end
 end
